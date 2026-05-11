@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Late Payment FAQ | latepaycalc.com';
+const description = 'Common questions about late fees, interest on overdue invoices, and employment final-paycheck penalties.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Late Payment FAQ</h1>
+
+  <h2>Can I charge a late fee on an invoice without saying so up front?</h2>
+  <p><strong>Usually no.</strong> Late fees should be in your contract or on your invoice terms BEFORE the work is done. Surprise late fees added after the fact are typically unenforceable.</p>
+
+  <h2>What's a reasonable late-fee rate?</h2>
+  <p>For B2B commercial debts, 1.5% per month (18% annualized) is a common contractual rate. State usury laws cap how high a contractual rate can go &mdash; many states allow up to 10% per year by statute, more if specifically agreed.</p>
+
+  <h2>What if my contract doesn't specify a late fee?</h2>
+  <p>You may still be entitled to statutory interest at your state's commercial rate (often 4&ndash;10% per year). This isn't a "late fee" but is recoverable in collections.</p>
+
+  <h2>Are late fees taxable income?</h2>
+  <p>Yes, late fees received from customers are typically taxable as ordinary income. Consult a tax professional for specifics.</p>
+
+  <h2>If I'm paid late by my employer, do I have any recourse?</h2>
+  <p>Yes, often significant. Many states have statutory penalties for late wage payment. California's "waiting time penalty" is up to 30 days of wages. Other states have different but often substantial penalties. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a>.</p>
+
+  <h2>What's the difference between a late fee and interest?</h2>
+  <p>A "late fee" is typically a flat dollar charge for being overdue. "Interest" accrues daily as a percentage of the overdue balance. Many contracts use both: a flat fee at the trigger point plus interest going forward.</p>
+
+  <h2>Can a late fee be considered a "penalty"?</h2>
+  <p>Yes, and that can matter. Courts may refuse to enforce late fees if they're unreasonably large compared to actual damages (the "liquidated damages vs. penalty" rule). A late fee should be a reasonable estimate of your harm, not punitive.</p>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'Final Paycheck Deadlines by State | latepaycalc.com';
+const description = 'How long employers have to issue your final paycheck after termination, by state. Penalties for late final paychecks.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Final Paycheck Deadlines by State</h1>
+  <p>State law sets specific deadlines for issuing final paychecks. Penalties for late payment vary dramatically. Below are notable states.</p>
+
+  <h2>California (most worker-favorable)</h2>
+  <ul>
+    <li><strong>Involuntary termination:</strong> Pay due immediately at termination.</li>
+    <li><strong>Voluntary quit with 72+ hours notice:</strong> Due on last day.</li>
+    <li><strong>Voluntary quit without notice:</strong> Due within 72 hours.</li>
+    <li><strong>Penalty for late payment:</strong> One full day's wages for each day late, capped at 30 days (Cal. Labor Code &sect; 203 &mdash; the "waiting time penalty").</li>
+  </ul>
+
+  <h2>Massachusetts</h2>
+  <p>Final wages due on the day of discharge (or the next regular payday if the employee quit). Triple damages plus attorney's fees for violations.</p>
+
+  <h2>Illinois</h2>
+  <p>Final wages due on the next regular payday following termination. Damages for late payment: 1% per day calculation plus attorney's fees.</p>
+
+  <h2>New York</h2>
+  <p>Final wages due on the next regular payday. Statutory damages plus attorney's fees for violations.</p>
+
+  <h2>Texas</h2>
+  <p>If terminated: within 6 calendar days. If voluntary quit: next regular payday. Penalty: lesser of treble damages or 4 weeks' wages for willful violations.</p>
+
+  <h2>Florida</h2>
+  <p>No specific state-level deadline for final paychecks (federal FLSA still applies). Standard payday rules apply. Penalties for unpaid wages claimable under FLSA.</p>
+
+  <h2>States with relatively forgiving deadlines and penalties</h2>
+  <p>Most states allow final paychecks on the next regular payday. Penalties are typically lower than in California and Massachusetts, but unpaid wages are still recoverable through state labor agencies or private suit.</p>
+
+  <p>For your specific state, check your state labor agency website or consult an employment attorney. For practical guidance, see <a href="/guides/what-to-do-if-paid-late">What to do if you're paid late</a>.</p>
+</BaseLayout>

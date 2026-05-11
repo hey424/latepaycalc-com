@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | latepaycalc.com';
+const description = 'How we calculate late-payment fees and interest: contract-specified rates, statutory defaults, and state-specific employment penalties.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology</h1>
+  <p>Our calculator handles two distinct late-payment contexts using different formulas.</p>
+
+  <h2>B2B invoice / contract late payments</h2>
+  <p>The basic formula:</p>
+  <p><code>Late fee = (Flat fee, if any) + (Amount overdue &times; (Annual rate &divide; 365) &times; Days late)</code></p>
+  <p>Rate priority order:</p>
+  <ol>
+    <li>Rate explicitly stated in the contract or invoice terms (subject to state usury caps)</li>
+    <li>State statutory rate for commercial debts (varies; often 4&ndash;10% per year)</li>
+    <li>State legal/judgment rate as the absolute fallback</li>
+  </ol>
+
+  <h2>Employment final paycheck penalties</h2>
+  <p>State-specific. The most-cited example is California's "waiting time penalty" under Labor Code &sect; 203:</p>
+  <p><code>Penalty = Daily wage &times; Days late</code> (capped at 30 days)</p>
+  <p>Other states have different penalty structures. Some require treble damages, some require attorney's fees, some have flat penalties. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a> for the breakdown.</p>
+
+  <h2>What we don't model</h2>
+  <p>Compound interest (most late-fee scenarios use simple interest); FCRA implications of debt-collection actions; bankruptcy-related debt freezes; usury defenses to overbroad contractual rates. These require case-specific legal analysis.</p>
+</BaseLayout>

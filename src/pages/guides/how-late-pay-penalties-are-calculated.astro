@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'How Late-Pay Penalties Are Calculated | latepaycalc.com';
+const description = 'Step-by-step on calculating late fees and interest: contract-specified rates, statutory defaults, daily interest formulas, and worked examples.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>How Late-Pay Penalties Are Calculated</h1>
+  <p>Late-payment math depends on context. Here are the formulas for the two main scenarios.</p>
+
+  <h2>Scenario 1: B2B invoice or contract</h2>
+  <p>If your contract specifies a late fee and/or interest rate:</p>
+  <p><code>Total late charge = Flat fee + (Amount overdue &times; (Annual rate &divide; 365) &times; Days late)</code></p>
+  <p><strong>Example:</strong> $5,000 invoice, 45 days overdue, contract specifies $50 flat fee + 1.5%/month (18% APR) interest.</p>
+  <p>Interest = $5,000 &times; (0.18 &divide; 365) &times; 45 = $110.96</p>
+  <p>Total = $50 + $110.96 = $160.96</p>
+
+  <h2>Scenario 2: No contractual late terms, but you want to recover something</h2>
+  <p>If your contract is silent on late fees, you can usually still claim statutory interest at your state's commercial rate when you sue. This isn't a "fee" but adds to recoverable amounts in collections.</p>
+  <p>Statutory rates vary by state. Common range: 4&ndash;10% per year for commercial debts. Some states allow contractual rates up to specific usury caps.</p>
+
+  <h2>Scenario 3: Employment final paycheck</h2>
+  <p>State law governs. The most worker-favorable is California's waiting time penalty:</p>
+  <p><code>Penalty = Daily wage &times; Days late</code> (capped at 30 days)</p>
+  <p><strong>Example:</strong> Worker earning $200/day, final paycheck 10 days late. Penalty = $200 &times; 10 = $2,000.</p>
+  <p>If the worker had been waiting 60 days, the cap would limit the penalty to 30 days &times; $200 = $6,000.</p>
+
+  <h2>What's "reasonable" for a late fee?</h2>
+  <p>Courts may refuse to enforce a late fee if it's unreasonably large compared to actual damages. The general test: the fee should reasonably estimate the harm caused by the delay, not be punitive.</p>
+  <p>Common reasonable rates:</p>
+  <ul>
+    <li>$25&ndash;$50 flat fees on small invoices</li>
+    <li>1&ndash;2% per month (12&ndash;24% APR) interest on commercial accounts</li>
+    <li>Higher rates for short-term financing or industries with high collection costs</li>
+  </ul>
+  <p>Rates over 2.5%/month start to draw scrutiny in many states.</p>
+
+  <h2>Compound vs. simple interest</h2>
+  <p>Most late-fee calculations use SIMPLE interest (calculate on original principal). Compound interest (recalculate on principal + accrued interest) is less common and may face additional enforceability hurdles. Stick to simple interest unless your contract clearly specifies compounding.</p>
+</BaseLayout>
