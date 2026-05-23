@@ -1,29 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Late Payment FAQ | latepaycalc.com';
-const description = 'Common questions about late fees, interest on overdue invoices, and employment final-paycheck penalties.';
+const description = 'Common questions about late fees, interest on overdue invoices, employment final-paycheck penalties, and how state law affects what you can claim.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Late Payment FAQ</h1>
+  <p><em>Reviewed by Morgan Kettering (MK), Editor-in-Chief &amp; Wage Theft Lead, SHRM-SCP. Updated May 2026.</em></p>
 
   <h2>Can I charge a late fee on an invoice without saying so up front?</h2>
-  <p><strong>Usually no.</strong> Late fees should be in your contract or on your invoice terms BEFORE the work is done. Surprise late fees added after the fact are typically unenforceable.</p>
+  <p><strong>Usually no.</strong> Late fees should be disclosed in your contract or invoice terms before the work is done or the goods are delivered. Surprise late fees added after the fact are typically unenforceable — courts treat them as unilateral modifications of the agreement. Best practice: include late-fee language in every contract and on every invoice, so there's no dispute that the customer was on notice before they agreed to the deal.</p>
 
   <h2>What's a reasonable late-fee rate?</h2>
-  <p>For B2B commercial debts, 1.5% per month (18% annualized) is a common contractual rate. State usury laws cap how high a contractual rate can go &mdash; many states allow up to 10% per year by statute, more if specifically agreed.</p>
+  <p>For B2B commercial debts, 1.5% per month (18% annualized) is the most common contractual rate in service agreements. State usury laws cap how high a contractual rate can go — many states allow up to 10% per year by statute for commercial debts, with higher rates possible if the parties specifically agreed in writing. Rates above 2.5% per month (30% APR) start drawing scrutiny in most states. Courts can also refuse to enforce a late fee that's disproportionately large compared to the actual harm from late payment — the "liquidated damages vs. penalty" doctrine.</p>
 
   <h2>What if my contract doesn't specify a late fee?</h2>
-  <p>You may still be entitled to statutory interest at your state's commercial rate (often 4&ndash;10% per year). This isn't a "late fee" but is recoverable in collections.</p>
+  <p>You may still be entitled to statutory interest at your state's commercial rate when you pursue collection — typically 4–10% per year depending on the state. This isn't a "late fee" in the contractual sense, but it adds to the recoverable amount when you sue or negotiate. Common examples: California 10% (Cal. Civ. Code § 3289), New York 9% (CPLR § 5004), Texas 18% for written contracts (Tex. Fin. Code § 302.002). It's not as strong as having a rate in writing, but you're not entirely without recourse on the interest front.</p>
 
   <h2>Are late fees taxable income?</h2>
-  <p>Yes, late fees received from customers are typically taxable as ordinary income. Consult a tax professional for specifics.</p>
+  <p>Yes. Late fees and interest received from customers are typically taxable as ordinary income in the year received. This applies whether they're received as part of the original invoice payment or as a separate collection. For employers, waiting-time penalties paid to employees are generally treated as wages subject to payroll tax, though the treatment can get complicated when the penalty is paid months after termination. Consult a tax professional for your specific situation — this isn't tax advice.</p>
 
   <h2>If I'm paid late by my employer, do I have any recourse?</h2>
-  <p>Yes, often significant. Many states have statutory penalties for late wage payment. California's "waiting time penalty" is up to 30 days of wages. Other states have different but often substantial penalties. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a>.</p>
+  <p>Yes, often significant. Most states have statutory penalties for late wage payment that go well beyond simply recovering the unpaid amount. California's waiting-time penalty (Labor Code § 203) is one full day's wages for every day the final paycheck is late, capped at 30 days — for a $300/day worker, that's up to $9,000 in penalties on top of the unpaid wages. Massachusetts imposes treble damages plus attorney's fees. Illinois adds 1% per day. Texas allows treble damages for willful violations. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a> for the breakdown.</p>
 
   <h2>What's the difference between a late fee and interest?</h2>
-  <p>A "late fee" is typically a flat dollar charge for being overdue. "Interest" accrues daily as a percentage of the overdue balance. Many contracts use both: a flat fee at the trigger point plus interest going forward.</p>
+  <p>A "late fee" is typically a flat dollar charge triggered when payment is overdue — often structured as "$X if invoice is more than Y days past due." It applies once, at the trigger point. "Interest" accrues daily as a percentage of the outstanding balance — it grows the longer payment is delayed. Many commercial contracts use both: a flat fee at the trigger point to cover administrative costs, plus interest going forward to compensate for the time value of money. The calculator handles both and can combine them.</p>
 
-  <h2>Can a late fee be considered a "penalty"?</h2>
-  <p>Yes, and that can matter. Courts may refuse to enforce late fees if they're unreasonably large compared to actual damages (the "liquidated damages vs. penalty" rule). A late fee should be a reasonable estimate of your harm, not punitive.</p>
+  <h2>Can a late fee be considered a "penalty" and become unenforceable?</h2>
+  <p>Yes, and that distinction matters. The rule from contract law is that "liquidated damages" (a pre-agreed estimate of harm) are enforceable, but "penalties" (charges designed to punish rather than compensate) may not be. The test most courts apply: was the late fee a reasonable estimate of the actual harm from late payment at the time the contract was formed? A $50 flat fee on a $5,000 invoice is almost certainly fine. A $500/day fee on a $500 invoice would likely be struck down as a penalty. Courts look at proportionality — the fee should bear a reasonable relationship to the damages the creditor actually suffers from delay (lost use of money, collection costs).</p>
+
+  <h2>Does a good-faith dispute about the invoice pause late fees?</h2>
+  <p>Often yes, but it depends on your state and contract. Many states provide that if a customer raises a legitimate, timely dispute about an invoice, late fees may not accrue on the disputed portion while the dispute is pending. The key words are "legitimate" and "timely" — a customer who waits until the due date to manufacture a dispute, or whose objection clearly has no merit, generally cannot use that dispute to avoid late fees. If your contract addresses dispute procedures, those terms govern. If it's silent, state law on commercial reasonableness fills the gap.</p>
+
+  <h2>My contract specifies interest, but the customer says the rate is usurious. What happens?</h2>
+  <p>If a court agrees the rate exceeds the applicable usury cap, the remedy varies by state. Some states (the minority) will void all interest — you recover only principal. Most states reduce the rate to the legal maximum but still award interest. A few states impose penalties on the creditor for attempting to charge a usurious rate. The analysis also depends on whether the transaction is commercial or consumer — many states have much higher (or no) usury caps for commercial transactions between businesses. This is fact-specific legal analysis; consult an attorney before setting rates at the high end of any range.</p>
+
+  <h2>What's the statute of limitations for collecting a late-payment debt?</h2>
+  <p>It varies by state and claim type. For written contracts, the limitation period is typically 4–6 years in most states. For oral contracts, it's shorter — usually 2–4 years. For employment wage claims, state labor statutes often have their own periods — California, for example, gives three years for statutory wage claims (Labor Code § 203) and four years for contract-based claims. Once the statute runs, you lose the right to sue, even if the debt is clearly owed. Don't wait. If you're within a year or two of the potential statute, get the collection process moving.</p>
+
+  <h2>Can I collect attorney's fees if I have to sue to recover a late invoice?</h2>
+  <p>Only if your contract says so or a statute provides for it. The American Rule is that each party pays its own attorney's fees. However, many commercial contracts include a "prevailing party" fee-shifting clause — if you sue and win, the debtor pays your fees. Employment wage statutes in most states also include mandatory fee-shifting for prevailing employees — that's one reason employment wage claims are often more attractive than small-dollar commercial disputes. If you're drafting a commercial contract, a fee-shifting clause is worth including.</p>
+
+  <h2>Is compound interest allowed on late fees?</h2>
+  <p>Rarely, and it faces higher scrutiny. Simple interest (calculated on the original principal only) is the default for late-fee calculations and what courts expect to see. Compound interest — where accrued interest is added to the principal and interest then accrues on the enlarged balance — requires explicit contractual provision. Even with explicit language, compound interest provisions may face additional scrutiny under usury law or the liquidated-damages doctrine in some states. Our calculator uses simple interest only. If your contract calls for compounding, the number will be higher than what the calculator shows.</p>
 </BaseLayout>

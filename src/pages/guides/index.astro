@@ -1,19 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const title = 'Late Payment Guides | latepaycalc.com';
-const description = 'Plain-English guides on late fees, statutory penalties, and what to do when payment is overdue (B2B and employment).';
+const description = 'Plain-English guides on late fees, statutory penalties, and what to do when payment is overdue — covering both B2B invoice disputes and employment final paychecks.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Late Payment Guides</h1>
-  <p>Reviewed by the <a href="/editorial">editorial team</a>.</p>
+  <p>Practical guides on late-payment law for both commercial and employment contexts. Written by The Click Lab's editorial team and reviewed for statutory accuracy. Reviewed by the <a href="/editorial">editorial team</a>.</p>
+
   <h2>Calculating late payments</h2>
   <ul>
-    <li><a href="/guides/how-late-pay-penalties-are-calculated">How late-pay penalties are calculated</a></li>
-    <li><a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a></li>
+    <li>
+      <strong><a href="/guides/how-late-pay-penalties-are-calculated">How late-pay penalties are calculated</a></strong><br />
+      The formulas behind late-fee calculations for B2B invoices and employment final paychecks. Includes worked examples: flat fee plus interest on a commercial invoice, California waiting-time penalty with the 30-day cap, and what "reasonable" looks like for commercial late fees. Covers simple vs. compound interest and why compounding is rarely the right choice.
+    </li>
+    <li>
+      <strong><a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a></strong><br />
+      State-by-state breakdown of how long employers have to issue a final paycheck after termination — and what happens if they miss the deadline. Covers California (immediate at termination for involuntary discharge, § 203 waiting-time penalty up to 30 days), Massachusetts (treble damages), Illinois (1% per day), Texas (6 days for involuntary termination), New York, Florida, and the general rule for states without specific deadlines.
+    </li>
   </ul>
+
   <h2>Practical action</h2>
   <ul>
-    <li><a href="/guides/what-to-do-if-paid-late">What to do if you're paid late</a></li>
-    <li><a href="/guides/common-late-pay-misconceptions">Common late-pay misconceptions</a></li>
+    <li>
+      <strong><a href="/guides/what-to-do-if-paid-late">What to do if you're paid late</a></strong><br />
+      Step-by-step recovery guide for both contexts. For B2B: informal reminder → formal demand letter (what to include) → mediation or arbitration → small claims (limits by state) → collections. For employment: written demand to HR/payroll → free wage claim with state labor agency → employment attorney (most work on contingency for wage cases) → federal FLSA claim if applicable. Includes what NOT to do — threats you can't back up, public disparagement, accepting partial payment as full settlement without a written release.
+    </li>
+    <li>
+      <strong><a href="/guides/common-late-pay-misconceptions">Common late-pay misconceptions</a></strong><br />
+      The most frequent misunderstandings about late-fee enforceability, compound interest, what happens when a contract is silent, the good-faith dispute exception, whether contractors have recourse, and what triggers a California waiting-time penalty. If you've been told you can charge any late fee you want — or that you can't charge any because your contract is silent — read this first.
+    </li>
+  </ul>
+
+  <h2>Related calculators</h2>
+  <ul>
+    <li><a href="/">Late payment calculator</a> — estimate late fees and interest on overdue invoices or final paychecks</li>
   </ul>
 </BaseLayout>
