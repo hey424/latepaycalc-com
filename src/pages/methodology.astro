@@ -1,27 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | latepaycalc.com';
-const description = 'How we calculate late-payment fees and interest: contract-specified rates, statutory defaults, and state-specific employment penalties.';
+const description = 'How we calculate late-payment fees and interest: contract-specified rates, statutory defaults, and state-specific employment penalties, with worked examples.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology</h1>
-  <p>Our calculator handles two distinct late-payment contexts using different formulas.</p>
+  <p><em>Reviewed by Morgan Kettering (MK), Editor-in-Chief, and Emerson Park (EP), Contributing Writer &middot; Updated June 2026</em></p>
+  <p>LatePayCalc estimates what a late payment is actually worth &mdash; either the interest and fees owed on an overdue commercial invoice, or the statutory penalty owed to a worker whose final paycheck arrived late. Those two situations are governed by completely different bodies of law, so our calculator handles them with two distinct formulas. This page explains exactly how each estimate is produced, why the inputs matter, and where the math stops and case-specific legal judgment begins. Methodology matters here because a "late payment" number is only useful if it traces back to a real contractual rate or a real statute &mdash; an arbitrary percentage is worthless in a demand letter or a wage claim.</p>
 
   <h2>B2B invoice / contract late payments</h2>
-  <p>The basic formula:</p>
+  <p>For overdue commercial invoices, the calculator computes simple interest on the outstanding balance plus any flat late fee the contract allows. The basic formula:</p>
   <p><code>Late fee = (Flat fee, if any) + (Amount overdue &times; (Annual rate &divide; 365) &times; Days late)</code></p>
-  <p>Rate priority order:</p>
+  <p>We use a 365-day year and simple (non-compounding) interest, because that is what the large majority of commercial contracts and state prejudgment-interest statutes actually specify. The annual rate is not invented &mdash; it is selected in a fixed priority order:</p>
   <ol>
     <li>Rate explicitly stated in the contract or invoice terms (subject to state usury caps)</li>
     <li>State statutory rate for commercial debts (varies; often 4&ndash;10% per year)</li>
     <li>State legal/judgment rate as the absolute fallback</li>
   </ol>
 
+  <h3>Worked example</h3>
+  <p>Suppose a contractor is owed $12,000 on an invoice that is 45 days past due. The contract specifies a 1.5% monthly service charge (18% annualized) and a $50 flat late fee. The interest portion is $12,000 &times; (0.18 &divide; 365) &times; 45 = $266.30. Add the $50 flat fee and the total late charge is <strong>$316.30</strong>. If the contract had been silent on the rate, we would fall back to the state statutory commercial rate &mdash; say 8% &mdash; which produces $12,000 &times; (0.08 &divide; 365) &times; 45 = $118.36 in interest instead. The contractual-rate-versus-statutory-rate gap (here, more than $145) is exactly why the rate-priority order is the single most important step in the calculation.</p>
+
   <h2>Employment final paycheck penalties</h2>
-  <p>State-specific. The most-cited example is California's "waiting time penalty" under Labor Code &sect; 203:</p>
+  <p>Final-paycheck penalties are not interest at all &mdash; they are statutory penalties designed to punish delay, and they vary dramatically by state. The most-cited example is California's "waiting time penalty" under Labor Code &sect; 203:</p>
   <p><code>Penalty = Daily wage &times; Days late</code> (capped at 30 days)</p>
-  <p>Other states have different penalty structures. Some require treble damages, some require attorney's fees, some have flat penalties. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a> for the breakdown.</p>
+  <p>For a worker earning $200 per day whose final check is 30+ days late, the penalty maxes out at $200 &times; 30 = <strong>$6,000</strong> &mdash; independent of how large the unpaid wages themselves were. Other states use entirely different structures: Massachusetts imposes mandatory treble (3&times;) damages on late wages under M.G.L. c. 149 &sect; 148; New York adds liquidated damages equal to 100% of the unpaid amount plus attorney's fees; Illinois charges 2% per month of the unpaid wages; Florida has no statutory penalty at all. Because of this, the calculator applies the selected state's penalty mechanism rather than a single national rule. See <a href="/guides/final-paycheck-deadlines-by-state/">Final paycheck deadlines by state</a> for the full breakdown of deadlines and penalties.</p>
+
+  <h3>Voluntary vs. involuntary separation</h3>
+  <p>The deadline that triggers a penalty often depends on how the employment ended. Most states set a stricter deadline for involuntary termination (sometimes same-day) than for a voluntary resignation (often the next regular pay date). The calculator asks for the separation type because a paycheck that is "late" after a firing may be perfectly on-time after a resignation in the same state.</p>
 
   <h2>What we don't model</h2>
-  <p>Compound interest (most late-fee scenarios use simple interest); FCRA implications of debt-collection actions; bankruptcy-related debt freezes; usury defenses to overbroad contractual rates. These require case-specific legal analysis.</p>
+  <p>Several real-world wrinkles are deliberately out of scope because they require case-specific legal analysis rather than a formula. We do not model compound interest (most late-fee scenarios use simple interest); FCRA implications of debt-collection actions; bankruptcy-related automatic stays that freeze a debt; usury defenses to an overbroad contractual rate; partial payments that re-amortize the balance mid-period; or the "good-faith dispute" defenses that can eliminate a waiting-time penalty entirely if the employer had a genuine basis to withhold. We also do not model attorney's fees and court costs, which in wage cases frequently exceed the underlying penalty. Treat the result as a starting estimate for a conversation with the other party or with counsel, not as a final legal determination.</p>
 </BaseLayout>
