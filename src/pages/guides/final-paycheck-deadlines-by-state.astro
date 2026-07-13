@@ -1,81 +1,103 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const title = 'Final Paycheck Deadlines by State | latepaycalc.com';
-const description = 'How long employers have to issue your final paycheck after termination, by state — plus penalties for late final paychecks and what to do if yours is overdue.';
+const description = 'A state-by-state reference for final paycheck deadlines: voluntary vs. involuntary separation, statutory penalties, and the differences that actually matter for workers.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Final Paycheck Deadlines by State</h1>
-  <p>State law sets specific deadlines for when employers must issue a final paycheck after termination. Miss those deadlines and employers face statutory penalties that can dwarf the unpaid wages themselves. Below is a guide to notable states — from the most worker-favorable (California, Massachusetts) to the general rule in states with lighter penalty regimes.</p>
-  <p><em>Reviewed by Morgan Kettering (MK), Editor-in-Chief &amp; Wage Theft Lead, SHRM-SCP. Updated May 2026.</em></p>
+  <p><em>Reviewed by our editorial team &mdash; State Wage Codes. Updated May 2026.</em></p>
 
-  <h2>California — most worker-favorable</h2>
-  <p>California has the strictest final-paycheck rules in the country, enforced by the Labor Commissioner's Office.</p>
+  <p>Final-paycheck rules are governed by state law, and they vary substantially. Some states require payment on the date of involuntary termination (or even on the spot); others allow up to the next regular pay date. A few have no specific statutory deadline. The penalty for delayed payment also varies enormously &mdash; from California's famous waiting time penalty (up to 30 days of wages) to states with no statutory penalty at all. This reference walks through the major frameworks.</p>
+  <p>State wage law changes. Confirm current statutory text and agency guidance for your state before relying on this for an actual decision.</p>
+
+  <h2>How state final-paycheck rules typically work</h2>
+  <p>Most state final-paycheck statutes distinguish between two situations:</p>
   <ul>
-    <li><strong>Involuntary termination (fired, laid off):</strong> All wages due immediately at the time of termination. The employer must have the check ready when they hand you the notice.</li>
-    <li><strong>Voluntary quit with 72+ hours advance notice:</strong> Final wages due on the last day of work.</li>
-    <li><strong>Voluntary quit without 72 hours notice:</strong> Final wages due within 72 hours of the last day of work.</li>
-    <li><strong>Penalty for late payment — "waiting time penalty" (Labor Code § 203):</strong> One full day's wages for each calendar day the final paycheck is late, capped at 30 days. This applies to involuntary terminations and is also available for voluntary quits in some circumstances. The penalty is calculated at the employee's regular daily rate of pay.</li>
+    <li><strong>Involuntary separation</strong> &mdash; employer-initiated termination, layoff, or end of contract. Generally has stricter deadlines.</li>
+    <li><strong>Voluntary separation</strong> &mdash; employee resignation, with or without notice. Generally has more lenient deadlines, sometimes tied to notice given.</li>
   </ul>
-  <p><strong>Example:</strong> A California employee earning $320/day is terminated and their employer takes 25 days to issue the final paycheck. Waiting-time penalty = $320 &times; 25 = $8,000, in addition to recovering the unpaid wages themselves.</p>
-  <p>California also requires that employees be paid all accrued, unused vacation on termination — vacation time is treated as earned wages, and late or nonpayment triggers the same § 203 penalty.</p>
+  <p>The strictest deadlines apply to involuntary termination without notice, where the employer needs to be prepared to pay on the spot or within a very tight window. Voluntary resignation with substantial notice often allows the employer to pay on the next regular pay date.</p>
 
-  <h2>Massachusetts — treble damages</h2>
-  <p>Massachusetts imposes some of the most severe penalties for wage violations in the country, with mandatory multiplication of unpaid wages.</p>
+  <h2>California (Cal. Lab. Code &sect;&sect; 201&ndash;204, 203)</h2>
+  <p>The most worker-protective state for final-paycheck timing:</p>
   <ul>
-    <li><strong>Involuntary termination:</strong> Final wages due on the day of discharge.</li>
-    <li><strong>Voluntary quit:</strong> Due on the next regular payday following the last day of work.</li>
-    <li><strong>Penalty (M.G.L. c. 149, § 150):</strong> Treble (triple) damages on unpaid wages, plus mandatory attorney's fees. Courts have little discretion to reduce the trebling — it is statutory. This means a $5,000 unpaid final paycheck becomes a $15,000 exposure before fees.</li>
-  </ul>
-  <p>Massachusetts enforcement is handled through the Attorney General's Fair Labor Division (free to file) or private litigation. The attorney's-fees provision makes employment attorneys especially willing to take these cases on contingency.</p>
-
-  <h2>Illinois — 1% per day</h2>
-  <p>Illinois uses a different penalty structure that grows over time.</p>
-  <ul>
-    <li><strong>Final paycheck timing:</strong> Due on the next regular scheduled payday following the last day of employment.</li>
-    <li><strong>Penalty (820 ILCS 115/14):</strong> 1% per day of the amount of underpayment or delay, plus attorney's fees. Unlike California's flat-day penalty, this accrues as a percentage, so it grows with both time and the size of the unpaid amount.</li>
-  </ul>
-  <p>Example: $3,000 in unpaid final wages, 30 days late. Penalty = $3,000 &times; 1% &times; 30 = $900, plus attorney's fees. Illinois claims can be filed with the Illinois Department of Labor or through a private lawsuit.</p>
-
-  <h2>New York — statutory damages plus fees</h2>
-  <ul>
-    <li><strong>Final paycheck timing:</strong> Due on the next regular payday after the last day of work.</li>
-    <li><strong>Penalty (New York Labor Law § 198):</strong> Liquidated damages equal to 100% of underpaid wages, plus attorney's fees and costs, for willful violations. For non-willful violations, courts have discretion on liquidated damages. The New York Department of Labor also handles claims administratively at no cost to workers.</li>
+    <li><strong>Involuntary termination:</strong> all wages due must be paid immediately upon termination (same day).</li>
+    <li><strong>Voluntary resignation with 72+ hours notice:</strong> all wages due on the last day of work.</li>
+    <li><strong>Voluntary resignation without 72 hours notice:</strong> all wages due within 72 hours of resignation.</li>
+    <li><strong>Penalty:</strong> waiting time penalty of daily wages &times; days late, capped at 30 days. Applies to "willful" failure to pay (a low bar).</li>
+    <li><strong>Accrued vacation/PTO:</strong> treated as wages. Must be paid out at separation. "Use it or lose it" vacation policies are illegal in California.</li>
   </ul>
 
-  <h2>Texas — 6 days for involuntary termination</h2>
+  <h2>Texas (Texas Payday Act, Tex. Labor Code Ch. 61)</h2>
   <ul>
-    <li><strong>Involuntary termination:</strong> Final wages due within 6 calendar days of discharge (Tex. Lab. Code § 61.014).</li>
-    <li><strong>Voluntary quit:</strong> Due on the next regularly scheduled payday.</li>
-    <li><strong>Penalty for willful violation:</strong> The lesser of treble damages or four weeks' wages, plus court costs. "Willful" requires more than simple delay — the employer must have known or shown reckless disregard for the obligation.</li>
-  </ul>
-  <p>Texas wage claims can be filed with the Texas Workforce Commission.</p>
-
-  <h2>Florida — no state deadline, FLSA applies</h2>
-  <p>Florida does not have a specific state-level final-paycheck deadline. Employers must pay final wages on the next regular payday. Florida also has no state-level waiting-time penalty. Workers in Florida rely on the federal Fair Labor Standards Act (FLSA), which requires timely payment of wages and allows recovery of unpaid wages, an equal amount in liquidated damages, plus attorney's fees for willful violations. Florida workers can file with the US Department of Labor's Wage and Hour Division or sue in federal court.</p>
-
-  <h2>Washington — 3 days for involuntary termination</h2>
-  <ul>
-    <li><strong>Involuntary termination:</strong> Final wages due within 3 days (Rev. Code Wash. § 49.48.010).</li>
-    <li><strong>Voluntary quit:</strong> Next regular payday or 3 days, whichever comes first.</li>
-    <li><strong>Penalty:</strong> Double the wages withheld, plus attorney's fees (Rev. Code Wash. § 49.52.050) for willful withholding.</li>
+    <li><strong>Involuntary termination:</strong> wages due within 6 days of termination, or the next regular pay date (whichever comes first).</li>
+    <li><strong>Voluntary resignation:</strong> next regular pay date.</li>
+    <li><strong>Penalty:</strong> the Texas Workforce Commission can assess interest plus an administrative penalty for non-payment; the Payday Act allows recovery through agency claim or private suit, with limited statutory penalty structure.</li>
+    <li><strong>Accrued vacation/PTO:</strong> payout at separation depends on employer policy. Texas does not statutorily require vacation payout.</li>
   </ul>
 
-  <h2>Colorado — immediate for involuntary, next payday for voluntary</h2>
+  <h2>New York (NY Lab. Law &sect;&sect; 191, 198)</h2>
   <ul>
-    <li><strong>Involuntary termination:</strong> Final wages due immediately or within 6 hours of the next business day (Colo. Rev. Stat. § 8-4-109).</li>
-    <li><strong>Voluntary quit:</strong> Next regular payday, or within 14 days, whichever is earlier.</li>
-    <li><strong>Penalty:</strong> 50% of underpaid wages for willful withholding, with additional penalties possible through CDLE administrative process.</li>
+    <li><strong>Manual workers</strong> (typically blue-collar): must be paid weekly, with final wages due no later than the regular pay date for the period in which the work was performed.</li>
+    <li><strong>Clerical and other workers:</strong> at least semi-monthly, with final wages due no later than the next regular pay date.</li>
+    <li><strong>Penalty:</strong> unpaid wages plus liquidated damages equal to 100% of the unpaid amount (doubling the recovery), plus attorney's fees. Liquidated damages can be avoided by employer showing good-faith basis.</li>
+    <li><strong>Frequency penalty:</strong> NY also has specific penalty for failing to pay manual workers weekly &mdash; even if total wages are eventually paid, the late frequency itself is a violation.</li>
   </ul>
 
-  <h2>States with next-payday rules and lower penalties</h2>
-  <p>Most states require final paychecks on the next regular payday following termination — both for involuntary and voluntary separations. Penalties in these states are typically lower than California and Massachusetts, but unpaid wages remain recoverable. Common remedies include actual unpaid wages plus interest, statutory damages of 25–100% of the unpaid amount, and attorney's fees in some states. States in this general category include Georgia, Ohio, Pennsylvania, Michigan, Arizona, and many others.</p>
-  <p>Even in states with lighter penalty regimes, unpaid wages are recoverable through the state labor agency or private lawsuit. Filing with the labor agency is typically free, doesn't require a lawyer, and pauses any statute-of-limitations clock during the administrative process.</p>
+  <h2>Massachusetts (M.G.L. c. 149, &sect; 148)</h2>
+  <ul>
+    <li><strong>Involuntary termination:</strong> all wages due on the last day of work.</li>
+    <li><strong>Voluntary resignation:</strong> next regular pay date.</li>
+    <li><strong>Penalty:</strong> automatic treble damages (3x the unpaid wages) plus attorney's fees. The treble-damages structure is mandatory, not discretionary &mdash; making Massachusetts one of the most worker-protective states for wage claims.</li>
+    <li><strong>Accrued vacation:</strong> if the employer's policy promises vacation, it must be paid out at separation.</li>
+  </ul>
 
-  <h2>Federal baseline (FLSA)</h2>
-  <p>The federal Fair Labor Standards Act sets a floor across all states: employers must pay wages on the established payday. For willful violations, workers can recover: (1) unpaid wages, (2) an equal amount in liquidated damages, and (3) attorney's fees. The FLSA has a 2-year statute of limitations (3 years for willful violations). State remedies are generally more favorable than federal remedies for final-paycheck claims, so most attorneys file state claims rather than federal ones.</p>
+  <h2>Florida</h2>
+  <ul>
+    <li>No specific statutory final-paycheck deadline. Wages are due on the next regular pay date.</li>
+    <li>No statutory penalty for delayed final payment beyond breach-of-contract damages.</li>
+    <li>Florida has been one of the lighter-touch states on final-paycheck enforcement.</li>
+  </ul>
 
-  <h2>What to do if your final paycheck is late</h2>
-  <p>Step one: send a written demand to your former employer's HR or payroll department, referencing the applicable statute and the amount owed. Step two: file with your state labor agency — free to file, no attorney required. Step three: if the amount is significant or the employer refuses to pay, consult an employment attorney. Most wage-theft attorneys work on contingency for these cases. See our full guide: <a href="/guides/what-to-do-if-paid-late">What to do if you're paid late</a>.</p>
+  <h2>Illinois (Illinois Wage Payment and Collection Act)</h2>
+  <ul>
+    <li><strong>Final paycheck:</strong> due at the time of separation if practicable, otherwise on the next regular pay date.</li>
+    <li><strong>Penalty:</strong> 2% per month interest on unpaid wages, plus statutory damages and attorney's fees.</li>
+    <li><strong>Accrued vacation:</strong> generally must be paid out at separation under an Illinois Supreme Court interpretation.</li>
+  </ul>
 
-  <p>Use our <a href="/">calculator</a> to estimate the California waiting-time penalty or other late-paycheck amounts before you start the process.</p>
+  <h2>Washington (RCW 49.48)</h2>
+  <ul>
+    <li><strong>Final paycheck:</strong> due on the next regular pay date.</li>
+    <li><strong>Penalty:</strong> for willful violations, double the unpaid wages plus attorney's fees.</li>
+  </ul>
+
+  <h2>Colorado (Colo. Rev. Stat. &sect; 8-4-109)</h2>
+  <ul>
+    <li><strong>Involuntary termination:</strong> all wages due immediately, unless the accounting department isn't open, in which case within 24 hours of when it next opens (and not more than 6 hours after the start of the next workday).</li>
+    <li><strong>Voluntary resignation:</strong> next regular pay date.</li>
+    <li><strong>Penalty:</strong> up to 125% of wages for first 60 days late, then up to 50% per pay period; treble damages possible for repeat violators.</li>
+  </ul>
+
+  <h2>Oregon (ORS 652.140)</h2>
+  <ul>
+    <li><strong>Involuntary termination:</strong> wages due the next business day.</li>
+    <li><strong>Voluntary resignation with 48+ hours notice:</strong> wages due on the last day.</li>
+    <li><strong>Voluntary resignation without notice:</strong> wages due within 5 business days or on the next regular pay date.</li>
+    <li><strong>Penalty:</strong> waiting time penalty similar in structure to California's &mdash; continued wages for up to 30 days for willful non-payment.</li>
+  </ul>
+
+  <h2>Other notable states (briefly)</h2>
+  <ul>
+    <li><strong>Minnesota:</strong> involuntary termination same-day; voluntary next pay date; penalty up to 15 days additional wages.</li>
+    <li><strong>Hawaii:</strong> involuntary termination at end of last working day; voluntary next pay date; small statutory penalty.</li>
+    <li><strong>Montana:</strong> involuntary termination same day; voluntary next pay date; statutory penalty.</li>
+    <li><strong>Pennsylvania:</strong> next regular pay date; limited statutory penalty.</li>
+    <li><strong>Ohio:</strong> next regular pay date; limited statutory penalty.</li>
+    <li><strong>Georgia:</strong> next regular pay date; limited statutory penalty.</li>
+  </ul>
+
+  <h2>How to use this reference</h2>
+  <p>First, identify the state where the work was performed (not where the employer is headquartered). Second, identify whether the separation was voluntary or involuntary. Third, find your state above and check the controlling deadline and penalty structure. Fourth, if the actual payment date exceeds the deadline, use our <a href="/">calculator</a> or our <a href="/guides/how-late-pay-penalties-are-calculated/">step-by-step penalty calculation guide</a> to estimate the amount.</p>
+  <p>For practical advice on what to do when you've been paid late, see <a href="/guides/what-to-do-if-paid-late/">What to do if you've been paid late</a>. For common errors in late-pay analysis, see <a href="/guides/common-late-pay-misconceptions/">Common late-pay misconceptions</a>.</p>
 </BaseLayout>

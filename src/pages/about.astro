@@ -1,35 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'About latepaycalc.com';
-const description = 'About the team behind latepaycalc.com — free late-payment calculators and guides for B2B invoices and employment final paychecks, reviewed by wage-law specialists.';
+const description = 'About the team behind latepaycalc.com — how we calculate B2B invoice late fees and employment final-paycheck penalties, our editorial standards, and how the site is funded.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>About latepaycalc.com</h1>
-  <p>latepaycalc.com is a free late-payment resource maintained by The Click Lab. Our calculator and guides cover two common late-payment scenarios: overdue B2B invoices and employment final-paycheck penalties. Both are areas where the law provides real remedies — but most people don't know the numbers until it's too late to use them.</p>
+  <p>latepaycalc.com is a free late-payment resource maintained by The Click Lab. Our calculator and guides cover two distinct situations that share a name but little else: business owners and freelancers trying to work out what a customer owes them in interest and late fees on an overdue invoice, and employees trying to work out what a former employer owes them in statutory penalties for a final paycheck that arrived late. The Site is built to give both groups a plain-English starting number before they send a demand letter, file a wage claim, or call a lawyer &mdash; not a substitute for legal or financial advice.</p>
 
-  <h2>Why we built this</h2>
-  <p>Late payment is endemic in commercial life. Studies consistently find that 40–60% of invoices are paid late at least occasionally, and the impact on small vendors — who often lack the leverage to enforce contract terms against larger customers — can be severe. On the employment side, final-paycheck violations are one of the most common wage-theft complaints filed with state labor agencies, affecting workers at every income level.</p>
-  <p>In both contexts, the law gives aggrieved parties real tools — contractual interest, statutory penalties, attorney's fees — but those tools only work if you know what they are and how to calculate what you're owed. That's the gap this site addresses. A vendor who doesn't know their contract's late-fee clause exists won't invoice for it. An employee who doesn't know that California Labor Code § 203 entitles them to 30 days of wages as a penalty won't know to claim it.</p>
+  <h2>What we do</h2>
+  <p>We translate two different bodies of law into plain-English calculators and guides: contract and commercial-interest principles for overdue invoices, and state wage-and-hour statutes for final-paycheck penalties. Every page is reviewed by our <a href="/editorial/">editorial team</a> with citations to the relevant state statutes, agency guidance, and case law. The invoice calculator applies whatever rate your contract specifies, or falls back to a state statutory rate for commercial debts if it doesn't; the final-paycheck calculator applies the specific penalty formula your state uses &mdash; which ranges from California's daily-wage waiting-time penalty to flat liquidated damages in other states, to no statutory penalty at all in a few.</p>
 
-  <h2>What the calculator covers</h2>
-  <p>The late-payment calculator estimates two types of charges:</p>
-  <ul>
-    <li><strong>B2B invoice late fees and interest.</strong> Enter the overdue amount, days past due, annual interest rate, and any flat fee from your contract. The calculator applies the standard simple-interest formula: <code>Flat fee + (Amount &times; (Rate &divide; 365) &times; Days)</code>. If your contract doesn't specify a rate, you can use your state's statutory commercial rate instead.</li>
-    <li><strong>Employment final-paycheck penalties.</strong> For the California waiting-time penalty (Labor Code § 203), enter the daily wage and days late. The calculator applies the daily-wage-times-days formula, capped at 30 days. Other states use different formulas — the guides cover Massachusetts treble damages, Illinois's 1%-per-day calculation, Texas treble damages, and more.</li>
-  </ul>
-  <p>Both scenarios use simple interest, not compound. Most late-fee and penalty calculations in practice use simple interest, and compound interest provisions face additional enforceability scrutiny in many states.</p>
+  <h2>Who this calculator is for</h2>
+  <p>On the invoice side, most visitors are freelancers, contractors, and small-business owners chasing a customer who hasn't paid on time, trying to figure out what late fee or interest they can legitimately add before sending a follow-up invoice or a demand letter. On the wage side, most visitors are workers who quit or were let go and whose final paycheck was late, short, or never arrived, trying to understand whether their state provides a penalty on top of the wages themselves &mdash; and how large that penalty realistically is. We also see HR and payroll staff double-checking a separation date against their state's deadline before it becomes a claim. We built the Site around these use cases, which is why every guide leads with a plain-English answer before it gets into statutory detail.</p>
 
-  <h2>What this site is not</h2>
-  <p>We are not lawyers, and this site is not legal advice. The calculator produces estimates based on the inputs you provide — it cannot account for your specific contract language, your state's usury cap, whether your customer has raised a good-faith dispute, or any number of other factors that affect actual enforceability. For disputes involving meaningful amounts of money, consult a licensed attorney in your state before sending demand letters or initiating legal action.</p>
-  <p>We also don't recommend specific attorneys or law firms, and we don't have referral relationships with any legal service. We think that's a conflict of interest in an information resource, so we don't do it.</p>
+  <h2>How the estimate is built</h2>
+  <p>The full mechanics &mdash; the invoice interest formula, the rate-priority order used when a contract is silent, the state-by-state final-paycheck penalty structures, and worked examples for both &mdash; are documented on our <a href="/methodology/">methodology page</a>. At a high level: for invoices, the calculator adds any flat late fee to simple daily interest at the contractual, statutory, or judgment rate, in that order of priority. For final paychecks, it applies the selected state's own penalty mechanism &mdash; a per-day wage penalty, a flat multiple of unpaid wages, or nothing at all &mdash; rather than a single national rule, because the two dozen or so states with an actual penalty structure genuinely don't agree with each other.</p>
 
-  <h2>Editorial approach</h2>
-  <p>Every page on this site is written and reviewed by <a href="/editorial">our editorial team</a> with citations to primary sources — actual statute sections and regulatory text, not just secondary summaries. We update content when laws change and correct errors when they're found.</p>
-  <p>Our editor-in-chief, Morgan Kettering (MK), SHRM-SCP, reviews all employment-wage content. Contributing writer Emerson Park (EP) covers state commercial-interest rate schedules and B2B late-fee law. Neither has a financial relationship with any party they write about.</p>
+  <h2>What we don't do</h2>
+  <p>We don't provide legal or financial advice, and nothing on this Site creates an attorney-client relationship. Real invoice disputes depend on the exact contract language, applicable usury limits, and whether a good-faith dispute exists; real wage claims depend on the state, the separation type, and the employer's own records &mdash; details no calculator can fully account for. We also don't evaluate individual disputes, review specific settlement or demand-letter numbers, file wage claims on anyone's behalf, or recommend particular attorneys or collection agencies. For your specific situation, consult a licensed attorney or your state's wage enforcement agency; see our <a href="/contact/">contact page</a> for pointers on finding the right one.</p>
+
+  <h2>Editorial standards</h2>
+  <p>Every guide and reference page is written from primary sources &mdash; state labor codes, commercial-interest and usury statutes, wage-agency guidance, and appellate case law &mdash; and reviewed before publication. We don't publish thin content: each page is meant to answer a specific question a freelancer, small-business owner, or worker would actually ask, with enough detail and enough worked examples to be genuinely useful. Our full editorial workflow, contributor backgrounds, and sourcing policy are on the <a href="/editorial/">editorial team page</a>.</p>
 
   <h2>How we make money</h2>
-  <p>Display advertising via Google AdSense. We don't sell reader data, don't accept sponsored content, and don't maintain paid attorney directories. Ad revenue covers operating costs. The calculator and all guides are free, with no registration required and no paywall.</p>
+  <p>Display advertising via Google AdSense. We don't sell reader data or accept paid placements, and no law firm, collection agency, or payroll company pays for placement or a favorable mention anywhere on the Site. See our <a href="/privacy/">privacy policy</a> for details on data handling.</p>
 
-  <h2>Contact and corrections</h2>
-  <p>If you find a statutory error, an outdated rate, or an incorrect formula, please let us know via our <a href="/contact">contact page</a>. We investigate every correction request. If you have a late-payment dispute you need help with, we recommend starting with your state labor agency (for employment issues) or an attorney in your state (for commercial issues) — we can't evaluate your specific situation.</p>
+  <h2>Contact</h2>
+  <p>Questions, corrections, or feedback: see our <a href="/contact/">contact page</a>.</p>
 </BaseLayout>
