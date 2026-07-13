@@ -5,7 +5,7 @@ const description = 'Free late payment calculator. Estimate late fees, interest 
 ---
 <BaseLayout title={title} description={description}>
   <h1>Late Payment Calculator</h1>
-  <p>Calculate what you're owed on a late invoice or paycheck. This calculator covers both B2B late-fee scenarios (overdue customer invoices, contract late-payment clauses) and US employment final-paycheck penalties.</p>
+  <p>Calculate what you're owed on a late invoice or paycheck. This calculator covers both B2B late-fee scenarios (overdue customer invoices, contract late-payment clauses) and US employment final-paycheck penalties. Enter your numbers and get an estimate in seconds — no registration, no paywall.</p>
 
   <section aria-labelledby="calc-heading">
     <h2 id="calc-heading">Calculate late payment</h2>
@@ -26,26 +26,48 @@ const description = 'Free late payment calculator. Estimate late fees, interest 
 
   <section>
     <h2>How late-payment calculations work</h2>
-    <p>Late-payment math depends on what your contract or law says. The most common methods:</p>
+    <p>Late-payment math depends on what your contract or law says. The two most common scenarios produce very different numbers — and different legal remedies. Here's the core logic behind each:</p>
     <ul>
-      <li><strong>Flat late fee.</strong> A fixed dollar amount imposed when payment is overdue. Common in service contracts. Example: "$50 late fee if invoice is more than 30 days past due."</li>
-      <li><strong>Interest on overdue balance.</strong> An annual interest rate applied to the unpaid amount, accruing daily until paid. Example: 8% APR on a $5,000 invoice 30 days late = $5,000 &times; (0.08 &divide; 365) &times; 30 = $32.88.</li>
-      <li><strong>Statutory late penalty.</strong> Imposed by state law for specific situations (e.g., final paychecks in many states). Often a multiple of daily wages.</li>
+      <li><strong>Flat late fee.</strong> A fixed dollar amount imposed when payment is overdue. Common in service contracts and freelance agreements. Example: "$50 late fee if invoice is more than 30 days past due." Applies once, at the trigger point. No daily accrual.</li>
+      <li><strong>Interest on overdue balance.</strong> An annual interest rate applied to the unpaid amount, accruing daily until paid. Formula: <code>Amount &times; (Annual rate &divide; 365) &times; Days late</code>. Example: 8% APR on a $5,000 invoice 30 days late = $5,000 &times; (0.08 &divide; 365) &times; 30 = $32.88. Continues growing until paid, unlike a flat fee.</li>
+      <li><strong>Statutory late penalty.</strong> Imposed by state law for specific situations — most commonly, late final paychecks in employment. California's waiting-time penalty under Labor Code § 203 is one full day's wages per day late, capped at 30 days. Massachusetts imposes treble damages. These penalties exist independent of contract terms.</li>
     </ul>
-    <p>Some contracts combine methods. See our <a href="/methodology">methodology</a> for full formula details.</p>
+    <p>Many commercial contracts combine methods — a flat fee at the trigger point plus accruing interest going forward. The calculator handles both individually and in combination. See our <a href="/methodology">methodology</a> for full formula details and worked examples.</p>
   </section>
 
   <section>
     <h2>B2B invoice late fees</h2>
-    <p>For overdue customer invoices, your right to a late fee depends on what your contract or invoice terms say. If your contract specifies a late fee or interest rate, that's typically what applies. If it doesn't, many states allow you to charge "reasonable" interest at the statutory rate (often 4&ndash;10% per year depending on the state) for commercial debts.</p>
-    <p>You can't usually charge surprise late fees after the fact. State usury laws cap how high a contractual rate can go.</p>
+    <p>For overdue customer invoices, your right to a late fee depends primarily on what your contract or invoice terms say. Three possible situations:</p>
+    <ul>
+      <li><strong>Contract specifies a rate.</strong> That rate applies, subject to your state's usury cap for commercial transactions. Most states allow commercial parties to agree to rates well above the statutory default — often up to 18–24% APR in writing.</li>
+      <li><strong>Contract is silent on late fees.</strong> You can likely still claim statutory interest at your state's commercial rate in a collection action — typically 4–10% per year. This isn't a "late fee" you can invoice directly, but it adds to what's recoverable when you sue or pursue collections. See your state's commercial code for the specific rate.</li>
+      <li><strong>No written contract.</strong> Statutory interest still applies for breach of an oral agreement. Your evidentiary position is weaker, but you're not without recourse.</li>
+    </ul>
+    <p>One important limit: late fees not disclosed before the work was done are typically unenforceable. A customer who agreed to your standard payment terms — including a late-fee clause — is bound by it. A customer who received a surprise late-fee addition on a past-due invoice they never agreed to may not be.</p>
     <p>For deeper coverage: <a href="/guides/how-late-pay-penalties-are-calculated">How late-pay penalties are calculated</a>.</p>
   </section>
 
   <section>
     <h2>Employment final paycheck penalties</h2>
-    <p>If you're an employee whose final paycheck was paid late, state law often provides specific penalties &mdash; sometimes severe. In California for example, the "waiting time penalty" is one full day's wages for each day the final paycheck is late, up to 30 days.</p>
-    <p>Final-paycheck deadlines also vary by state and termination type. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a>.</p>
+    <p>If you're an employee whose final paycheck was paid late — or not at all — state law often provides statutory penalties that go well beyond recovering just the unpaid wages. These penalties are designed to deter employer violations, and in the most employee-favorable states, they can be substantial:</p>
+    <ul>
+      <li><strong>California (Labor Code § 203).</strong> Waiting-time penalty of one full day's wages per day late, capped at 30 days. For a worker earning $250/day, that's up to $7,500 in penalties — on top of the unpaid wages. The deadline: immediate at termination for involuntary discharge; within 72 hours for voluntary quit without notice.</li>
+      <li><strong>Massachusetts.</strong> Treble (triple) damages on the unpaid wages plus mandatory attorney's fees under M.G.L. c. 149, § 150. Final wages due same day as discharge, or next regular payday if employee quit.</li>
+      <li><strong>Illinois.</strong> 1% per day penalty on unpaid wages plus attorney's fees under 820 ILCS 115/14. Final wages due next regular payday after termination.</li>
+      <li><strong>Texas.</strong> For involuntary termination, final pay due within 6 calendar days. Willful violations: the lesser of treble damages or 4 weeks' wages, plus court costs.</li>
+      <li><strong>Other states.</strong> Most require final paychecks on the next regular payday. Penalties vary — statutory damages of 25–100% of unpaid amount are common, plus attorney's fees in many states.</li>
+    </ul>
+    <p>Final-paycheck deadlines also vary by termination type — involuntary discharge typically triggers tighter deadlines than voluntary resignation. See <a href="/guides/final-paycheck-deadlines-by-state">Final paycheck deadlines by state</a> for the full breakdown.</p>
+  </section>
+
+  <section>
+    <h2>When to use a lawyer</h2>
+    <p>The calculator helps you understand the numbers. But whether those numbers are actually recoverable in your situation depends on facts a calculator can't see — your contract language, your state's current law, whether the debtor has defenses, whether your statute of limitations has run. As a rough guide:</p>
+    <ul>
+      <li><strong>Under $1,000 in dispute:</strong> Start with small claims court (no attorney required) or your state labor agency for employment claims (free to file).</li>
+      <li><strong>$1,000–$10,000:</strong> State labor agency for employment claims. For commercial disputes, evaluate whether small claims covers your amount — many states cap at $5,000–$10,000.</li>
+      <li><strong>Over $10,000:</strong> Consult a licensed attorney. For employment wage cases, most attorneys who handle wage claims work on contingency — you pay nothing unless they recover. For commercial disputes, weigh attorney's fees against the likely recovery.</li>
+    </ul>
   </section>
 
   <section>

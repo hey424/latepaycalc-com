@@ -1,34 +1,73 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | latepaycalc.com';
-const description = 'How we calculate late-payment fees and interest: contract-specified rates, statutory defaults, and state-specific employment penalties, with worked examples.';
+const description = 'How we calculate late-payment fees and interest: contract-specified rates, statutory defaults, usury cap checks, and state-specific employment penalties.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology</h1>
-  <p><em>Reviewed by Morgan Kettering (MK), Editor-in-Chief, and Emerson Park (EP), Contributing Writer &middot; Updated June 2026</em></p>
-  <p>LatePayCalc estimates what a late payment is actually worth &mdash; either the interest and fees owed on an overdue commercial invoice, or the statutory penalty owed to a worker whose final paycheck arrived late. Those two situations are governed by completely different bodies of law, so our calculator handles them with two distinct formulas. This page explains exactly how each estimate is produced, why the inputs matter, and where the math stops and case-specific legal judgment begins. Methodology matters here because a "late payment" number is only useful if it traces back to a real contractual rate or a real statute &mdash; an arbitrary percentage is worthless in a demand letter or a wage claim.</p>
+  <p>Our calculator handles two distinct late-payment contexts — B2B invoice / contract late fees and employment final-paycheck penalties — using different formulas. This page explains each step so you can verify every number the tool produces.</p>
+  <p><em>Reviewed by Morgan Kettering (MK), Editor-in-Chief &amp; Wage Theft Lead, SHRM-SCP. Updated May 2026.</em></p>
 
-  <h2>B2B invoice / contract late payments</h2>
-  <p>For overdue commercial invoices, the calculator computes simple interest on the outstanding balance plus any flat late fee the contract allows. The basic formula:</p>
-  <p><code>Late fee = (Flat fee, if any) + (Amount overdue &times; (Annual rate &divide; 365) &times; Days late)</code></p>
-  <p>We use a 365-day year and simple (non-compounding) interest, because that is what the large majority of commercial contracts and state prejudgment-interest statutes actually specify. The annual rate is not invented &mdash; it is selected in a fixed priority order:</p>
+  <h2>Step 1: Identify the scenario</h2>
+  <p>The calculator asks you to choose between two modes:</p>
+  <ul>
+    <li><strong>B2B invoice / contract</strong> — you're a vendor with an overdue customer invoice, or a contracting party owed payment under a written agreement. The relevant law is contract law plus state usury and commercial-interest statutes.</li>
+    <li><strong>Employment final paycheck</strong> — you're a former employee whose final wages weren't paid on time, or an employer calculating your exposure. The relevant law is state wage-payment statutes, which impose their own penalties independent of contract terms.</li>
+  </ul>
+  <p>The two modes use different underlying formulas and pull from different legal authorities. Mixing them produces incorrect results — a California waiting-time penalty calculation has nothing to do with a contractual late-fee clause.</p>
+
+  <h2>Step 2: Determine the applicable rate (B2B)</h2>
+  <p>For B2B scenarios, rate priority works as follows:</p>
   <ol>
-    <li>Rate explicitly stated in the contract or invoice terms (subject to state usury caps)</li>
-    <li>State statutory rate for commercial debts (varies; often 4&ndash;10% per year)</li>
-    <li>State legal/judgment rate as the absolute fallback</li>
+    <li><strong>Contractual rate.</strong> If your contract or invoice terms specify an annual interest rate (or a monthly rate — multiply by 12 to annualize), that rate applies, subject to the state usury cap check in Step 5. This is the strongest authority because the parties agreed to it.</li>
+    <li><strong>State statutory commercial rate.</strong> If the contract is silent, most states allow creditors to recover interest at a statutory "commercial" or "legal" rate on overdue business debts. Typical range: 4–10% per year. Examples: California 10% (Cal. Civ. Code § 3289), New York 9% (CPLR § 5004), Texas 18% for written contracts (Tex. Fin. Code § 302.002).</li>
+    <li><strong>Federal judgment rate as absolute fallback.</strong> If no state rate applies, the federal post-judgment interest rate (28 U.S.C. § 1961, keyed to weekly Treasury bill yields) provides a floor. This is rarely the operative rate in commercial disputes but exists as a backstop.</li>
   </ol>
+  <p>Enter the rate you want to apply. If you're unsure of your state's statutory rate, the calculator defaults to 8% APR — a rough midpoint for illustration only, not legal advice on your state's actual rate.</p>
 
-  <h3>Worked example</h3>
-  <p>Suppose a contractor is owed $12,000 on an invoice that is 45 days past due. The contract specifies a 1.5% monthly service charge (18% annualized) and a $50 flat late fee. The interest portion is $12,000 &times; (0.18 &divide; 365) &times; 45 = $266.30. Add the $50 flat fee and the total late charge is <strong>$316.30</strong>. If the contract had been silent on the rate, we would fall back to the state statutory commercial rate &mdash; say 8% &mdash; which produces $12,000 &times; (0.08 &divide; 365) &times; 45 = $118.36 in interest instead. The contractual-rate-versus-statutory-rate gap (here, more than $145) is exactly why the rate-priority order is the single most important step in the calculation.</p>
+  <h2>Step 3: Apply the B2B late-fee formula</h2>
+  <p>Once rate and flat fee are established, the formula is:</p>
+  <p><code>Total late charge = Flat fee (if any) + (Amount overdue &times; (Annual rate &divide; 365) &times; Days late)</code></p>
+  <p>This is simple interest — calculated on the original principal, not compounded. Compound interest is less common in late-fee contexts and may face stricter enforceability scrutiny (see <a href="/guides/how-late-pay-penalties-are-calculated">full formula guide</a>).</p>
+  <p><strong>Worked example:</strong> $8,000 invoice, 60 days overdue, contract specifies $75 flat fee + 1.5%/month (18% APR) interest.</p>
+  <ul>
+    <li>Interest = $8,000 &times; (0.18 &divide; 365) &times; 60 = $236.71</li>
+    <li>Total = $75 + $236.71 = <strong>$311.71</strong></li>
+  </ul>
+  <p>The flat fee applies once (at the trigger point). Interest accrues daily until paid.</p>
 
-  <h2>Employment final paycheck penalties</h2>
-  <p>Final-paycheck penalties are not interest at all &mdash; they are statutory penalties designed to punish delay, and they vary dramatically by state. The most-cited example is California's "waiting time penalty" under Labor Code &sect; 203:</p>
+  <h2>Step 4: Apply the employment penalty formula</h2>
+  <p>For employment final-paycheck scenarios, the formula depends on state. The most widely cited example is California's waiting-time penalty under Labor Code § 203:</p>
   <p><code>Penalty = Daily wage &times; Days late</code> (capped at 30 days)</p>
-  <p>For a worker earning $200 per day whose final check is 30+ days late, the penalty maxes out at $200 &times; 30 = <strong>$6,000</strong> &mdash; independent of how large the unpaid wages themselves were. Other states use entirely different structures: Massachusetts imposes mandatory treble (3&times;) damages on late wages under M.G.L. c. 149 &sect; 148; New York adds liquidated damages equal to 100% of the unpaid amount plus attorney's fees; Illinois charges 2% per month of the unpaid wages; Florida has no statutory penalty at all. Because of this, the calculator applies the selected state's penalty mechanism rather than a single national rule. See <a href="/guides/final-paycheck-deadlines-by-state/">Final paycheck deadlines by state</a> for the full breakdown of deadlines and penalties.</p>
+  <p>"Daily wage" is your regular daily rate of pay — hourly rate &times; hours per day, or annual salary &divide; 260 (52 weeks &times; 5 days), depending on your pay structure.</p>
+  <p><strong>Worked example (California):</strong> Employee earns $280/day. Final paycheck is 20 days late. Penalty = $280 &times; 20 = $5,600. If it were 45 days late, the cap would limit penalty to $280 &times; 30 = $8,400.</p>
+  <p>Other states use different structures:</p>
+  <ul>
+    <li><strong>Massachusetts:</strong> Triple (treble) damages on unpaid wages plus attorney's fees (M.G.L. c. 149, § 150). No day-cap — this multiplier can be substantial.</li>
+    <li><strong>Illinois:</strong> 1% per day on unpaid wages plus attorney's fees (820 ILCS 115/14).</li>
+    <li><strong>Texas:</strong> The lesser of treble damages or 4 weeks' wages for willful violations (Tex. Lab. Code § 61.018).</li>
+    <li><strong>Most other states:</strong> Actual unpaid wages plus statutory damages, often 25–100% of unpaid amount, plus attorney's fees. The calculator uses the California formula by default; adjust for your state using the guides.</li>
+  </ul>
 
-  <h3>Voluntary vs. involuntary separation</h3>
-  <p>The deadline that triggers a penalty often depends on how the employment ended. Most states set a stricter deadline for involuntary termination (sometimes same-day) than for a voluntary resignation (often the next regular pay date). The calculator asks for the separation type because a paycheck that is "late" after a firing may be perfectly on-time after a resignation in the same state.</p>
+  <h2>Step 5: Apply the usury cap check (B2B)</h2>
+  <p>Even when parties have agreed to a contractual rate, state usury laws impose ceilings. Exceeding the ceiling can render the excess interest unenforceable — and in some states, all interest.</p>
+  <p>Key nuances:</p>
+  <ul>
+    <li><strong>Consumer vs. commercial transactions.</strong> Consumer transactions (credit cards, personal loans) face stricter caps. Many states exempt commercial transactions entirely from usury limits or allow much higher caps for written commercial agreements.</li>
+    <li><strong>Amount thresholds.</strong> Some states (e.g., New York) exempt loans above a certain principal amount from usury ceilings under commercial exception rules.</li>
+    <li><strong>Choice of law.</strong> If your contract specifies another state's law, that state's usury limit may govern — though courts sometimes won't honor this if it's an attempt to evade a lower local cap.</li>
+  </ul>
+  <p>The calculator does not dynamically apply state usury caps — those require legal analysis of your specific contract and jurisdiction. If you're setting a rate, verify it's within your state's commercial ceiling before using it in a contract or claiming it against a customer.</p>
 
-  <h2>What we don't model</h2>
-  <p>Several real-world wrinkles are deliberately out of scope because they require case-specific legal analysis rather than a formula. We do not model compound interest (most late-fee scenarios use simple interest); FCRA implications of debt-collection actions; bankruptcy-related automatic stays that freeze a debt; usury defenses to an overbroad contractual rate; partial payments that re-amortize the balance mid-period; or the "good-faith dispute" defenses that can eliminate a waiting-time penalty entirely if the employer had a genuine basis to withhold. We also do not model attorney's fees and court costs, which in wage cases frequently exceed the underlying penalty. Treat the result as a starting estimate for a conversation with the other party or with counsel, not as a final legal determination.</p>
+  <h2>Step 6: Interpret the result</h2>
+  <p>The calculator output is an estimate for planning purposes only. It is not a legal determination of what you're owed or what is enforceable. Factors the calculator doesn't account for:</p>
+  <ul>
+    <li><strong>Compound interest.</strong> Most late-fee scenarios use simple interest. The calculator always uses simple interest.</li>
+    <li><strong>Partial payments.</strong> If the debtor paid part of the balance, adjust the "Amount overdue" input accordingly.</li>
+    <li><strong>Disputed invoices.</strong> If the customer has raised a timely, good-faith dispute, late fees may not accrue during the dispute period under some state laws.</li>
+    <li><strong>Bankruptcy stay.</strong> If the debtor is in bankruptcy, collection actions — including interest accrual — may be stayed under 11 U.S.C. § 362.</li>
+    <li><strong>FCRA and debt-collection laws.</strong> Reporting or collecting a debt triggers additional federal and state requirements not modeled here.</li>
+    <li><strong>Attorney's fees provisions.</strong> Many state wage statutes and some commercial contracts allow fee-shifting. Those amounts aren't modeled.</li>
+  </ul>
+  <p>For any dispute involving meaningful money, consult a licensed attorney in your state. See our <a href="/guides/">guides</a> for background reading before that conversation.</p>
 </BaseLayout>
