@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadCapture from '../components/LeadCapture.astro';
 const title = 'Late Payment Calculator — Late Fees & Interest | latepaycalc.com';
 const description = 'Free late payment calculator. Estimate late fees, interest on overdue invoices, and statutory late-payment penalties under state law. Covers both B2B invoices and employment final-paycheck rules.';
 ---
@@ -23,6 +24,8 @@ const description = 'Free late payment calculator. Estimate late fees, interest 
       </form>
     </div>
   </section>
+
+  <LeadCapture caseType="late_payment" caseTypeLabel="Late Payment / Final Paycheck" />
 
   <section>
     <h2>How late-payment calculations work</h2>
